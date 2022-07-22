@@ -29,6 +29,9 @@ ENTREZID         ACCNUM        ALIAS      CHR
 GENENAME       GID PMID         REFSEQ       SYMBOL
 28S ribosomal RNA 112768463 <NA> XR_003185888.1 LOC112768463
 
+########### The keytype of different speices may be different, you can use below command to know the detail of every keytype of your downloaded database
+head(keys(hypogaea.OrgDb,keytype="XXX"))
+
 ############ GO enrichment 
 enrich <- enrichGO(gene = DEG.peanut,OrgDb = hypogaea.OrgDb,keyType = "ACCNUM",ont = "MF",readable = T)
 dotplot(enrich)
@@ -40,6 +43,8 @@ KEGGID <- mapIds(x=hypogaea.OrgDb,keys = KEGGIDA,keytype = "ACCNUM",column = "EN
 
 ############ KEGG analysis
 enKEGG <- enrichKEGG(gene = KEGGIDA,organism = "ahf",pvalueCutoff = 0.05,qvalueCutoff  = 0.05)
+# organism is the species' name in KEGG. Ahf means human. You can search from "https://www.genome.jp/kegg/catalog/org_list.html"
+
 dotplot(enKEGG,title='KEGG pathway of DEGs', showCategory=20)
 # organism: every specie has different organism number , you can get it by searching at KEGG website. This command don't need local database. It works online.
 ############ subest can filter data for specify condition
