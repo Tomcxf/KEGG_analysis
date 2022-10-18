@@ -22,7 +22,7 @@ library(Rgraphviz)
 columns(hypogaea.OrgDb)
 ############
 
-############ This example clearly show what every keytype looks like.
+############ This example clearly show what every keytype looks like.cols=XXX, XXX is the keytype you want to match
 select(hypogaea.OrgDb,keys = "112768463",columns = cols,keytype = "ENTREZID")
 ENTREZID         ACCNUM        ALIAS      CHR
 112768463 XR_003185888.1 LOC112768463 Arahy.17
